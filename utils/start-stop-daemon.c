@@ -2624,7 +2624,7 @@ do_start(int argc, char **argv)
 		dup2(devnull_fd, 2); /* stderr */
 
 		 /* Now close all extra fds. */
-		for (i = get_open_fd_max() - 1; i >= 3; --i)
+		for (i = 1024; i >= 3; --i)
 			close(i);
 	}
 	execv(startas, argv);
